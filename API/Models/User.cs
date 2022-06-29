@@ -9,7 +9,7 @@ namespace API.Models
     public class User
     {
         [Key]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Gender Gender { get; set; }
@@ -17,6 +17,9 @@ namespace API.Models
         public string Phone { get; set; }
         public string email { get; set; }
         public bool IsDelete { get; set; }
+
+        public Account Account { get; set; }
+        public ICollection<Transaction> Transactions { get; set; }
     }
 
     public enum Gender

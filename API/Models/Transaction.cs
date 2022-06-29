@@ -15,11 +15,15 @@ namespace API.Models
         public Status Status { get; set; }
         public DateTime Date { get; set; }
         public string Bukti_Pembayaran { get; set; }
+        public User User { get; set; }
+        public Course Course { get; set; }
+
     }
 
     public enum Status
     {
         Accept,
-        Decline
+        Decline,
+        NotPaid
     } 
 }
