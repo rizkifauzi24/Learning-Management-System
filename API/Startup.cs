@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using API.Repository.Data;
 
 namespace API
 {
@@ -28,6 +29,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<RoleRepository>();
             services.AddDbContext<MyContex>(options => options.UseSqlServer(Configuration.GetConnectionString("APIContext")));
 
         }
