@@ -30,6 +30,7 @@ namespace API
         {
             services.AddControllers();
             services.AddScoped<RoleRepository>();
+            services.AddScoped<UserRepository>();
             services.AddDbContext<MyContex>(options => options.UseSqlServer(Configuration.GetConnectionString("APIContext")));
 
         }
