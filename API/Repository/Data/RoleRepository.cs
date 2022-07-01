@@ -13,7 +13,7 @@ namespace API.Repository.Data
 
         public RoleRepository(MyContex myContext) : base(myContext)
         {
-            
+
         }
     }
 }

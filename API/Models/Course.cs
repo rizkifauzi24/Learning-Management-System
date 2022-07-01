@@ -18,5 +18,7 @@ namespace API.Models
         public ICollection<Transaction> Transactions { get; set; }
         public ICollection<Section> Sections { get; set; }
 
+        public ICollection<Testimony> Testimony { get; set; }
+
     }
 }

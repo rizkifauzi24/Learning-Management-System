@@ -20,6 +20,8 @@ namespace API.Models
 
         public Account Account { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
+
+        public ICollection<Testimony> Testimony { get; set; }
     }
 
     public enum Gender

@@ -168,12 +168,15 @@ namespace API.Repository.Data
 
 
 
-        //CHANGE PASSWORD
+       
         public string GetRandomSalt()
         {
             return BCrypt.Net.BCrypt.GenerateSalt(12);
         }
 
+
+
+        //CHANGE PASSWORD
         public int ChangePassword(ChangePasswordVM changePasswordVM)
         {
             var account = (from u in _context.Users

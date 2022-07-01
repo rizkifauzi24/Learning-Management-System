@@ -51,7 +51,16 @@ namespace API.Contex
             modelBuilder.Entity<Transaction>()
                 .HasOne(c => c.Course)
                 .WithMany(tr => tr.Transactions);
-           
+
+
+
+            modelBuilder.Entity<Testimony>()
+                 .HasOne(us => us.user)
+                 .WithMany(ts => ts.Testimony);
+
+            modelBuilder.Entity<Testimony>()
+                 .HasOne(c => c.course)
+                 .WithMany(ts => ts.Testimony);
         }
 
         public DbSet<User> Users { get; set; }
