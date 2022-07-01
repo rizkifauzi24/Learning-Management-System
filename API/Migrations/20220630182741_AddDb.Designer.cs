@@ -4,14 +4,16 @@ using API.Contex;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(MyContex))]
-    partial class MyContexModelSnapshot : ModelSnapshot
+    [Migration("20220630182741_AddDb")]
+    partial class AddDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,31 +116,6 @@ namespace API.Migrations
                     b.HasIndex("CourseId");
 
                     b.ToTable("Sections");
-                });
-
-            modelBuilder.Entity("API.Models.Testimony", b =>
-                {
-                    b.Property<int>("TId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Deskripsi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("TId");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Testimony");
                 });
 
             modelBuilder.Entity("API.Models.Topic", b =>
@@ -261,25 +238,6 @@ namespace API.Migrations
                     b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("API.Models.Testimony", b =>
-                {
-                    b.HasOne("API.Models.Course", "course")
-                        .WithMany("Testimony")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("API.Models.User", "user")
-                        .WithMany("Testimony")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("course");
-
-                    b.Navigation("user");
-                });
-
             modelBuilder.Entity("API.Models.Transaction", b =>
                 {
                     b.HasOne("API.Models.Course", "Course")
@@ -303,8 +261,6 @@ namespace API.Migrations
                 {
                     b.Navigation("Sections");
 
-                    b.Navigation("Testimony");
-
                     b.Navigation("Transactions");
                 });
 
@@ -321,8 +277,6 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.User", b =>
                 {
                     b.Navigation("Account");
-
-                    b.Navigation("Testimony");
 
                     b.Navigation("Transactions");
                 });

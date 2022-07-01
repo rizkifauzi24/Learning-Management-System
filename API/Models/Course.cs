@@ -17,6 +17,7 @@ namespace API.Models
         public Topic Topic { get; set; }
         public ICollection<Transaction> Transactions { get; set; }
         public ICollection<Section> Sections { get; set; }
+        public ICollection<Testimony> Testimony { get; set; }
 
     }
 }

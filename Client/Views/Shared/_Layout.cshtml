@@ -41,6 +41,40 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#encode").submit(function (e) {
+                e.preventDefault();
+                let file = document.querySelector("#uploadTest")
+                imageUploaded(file, e => {
+                    $("#stringBase64").val(e);
+                })
+
+            });
+            $("#decode").submit(function (e) {
+                e.preventDefault();
+
+                let string = $("#stringBase64").val();
+                $("img").attr("src", "data:image/png;base64," + string);
+
+            });
+        })
+        function imageUploaded(file, callback) {
+            var file = file['files'][0];
+            var reader = new FileReader();
+            let base64String
+            let imageBase64Stringsep
+            let xxx
+            reader.onload = function () {
+                base64String = reader.result.replace("data:", "")
+                    .replace(/^.+,/, "");
+
+                imageBase64Stringsep = base64String;
+                callback(imageBase64Stringsep)
+            }
+            reader.readAsDataURL(file);
+        }
+    </script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)

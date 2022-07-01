@@ -14,7 +14,7 @@ namespace API.Models
         public int CourseId { get; set; }
         public Status Status { get; set; }
         public DateTime Date { get; set; }
-        public string Bukti_Pembayaran { get; set; }
+        public Byte[] Bukti_Pembayaran { get; set; }
         public User User { get; set; }
         public Course Course { get; set; }
 

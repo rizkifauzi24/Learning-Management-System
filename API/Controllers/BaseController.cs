@@ -42,8 +42,8 @@ namespace API.Controllers
         [HttpPost]
         public ActionResult Post(Entity entity)
         {
-            try
-            {
+            //try
+            //{
                 var result = repository.Insert(entity);
                 if (result == 1)
                 {
@@ -53,11 +53,11 @@ namespace API.Controllers
                 {
                     return StatusCode(400, new { status = HttpStatusCode.BadRequest, message = "Insert Gagal" });
                 }
-            }
-            catch (Exception)
-            {
-                return StatusCode(400, new { status = HttpStatusCode.BadRequest, message = "Insert Gagal" });
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    return StatusCode(400, new { status = HttpStatusCode.BadRequest, message = "Insert Gagal" });
+            //}
         }
 
         [HttpPut]

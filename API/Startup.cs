@@ -35,6 +35,7 @@ namespace API
             services.AddScoped<RoleRepository>();
             services.AddScoped<UserRepository>();
             services.AddScoped<AccountRepository>();
+            services.AddScoped<TransactionRepository>();
             services.AddDbContext<MyContex>(options => options.UseSqlServer(Configuration.GetConnectionString("APIContext")));
             services.AddAuthentication(auth =>
             {
